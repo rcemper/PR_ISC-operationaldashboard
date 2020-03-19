@@ -1,4 +1,4 @@
-Class Demo.OperationalAnalytics.Table Extends %Persistent
+Class Demo.OperationalAnalytics.MetricsTable Extends %Persistent
 {
 
 Property RunTime As %TimeStamp;
@@ -19,7 +19,7 @@ Property MaxTime As %Float;
 
 Storage Default
 {
-<Data name="TableDefaultData">
+<Data name="MetricsTableDefaultData">
 <Value name="1">
 <Value>%%CLASSNAME</Value>
 </Value>
@@ -48,11 +48,11 @@ Storage Default
 <Value>MaxTime</Value>
 </Value>
 </Data>
-<DataLocation>^Demo.OperationalAnal43E6.TableD</DataLocation>
-<DefaultData>TableDefaultData</DefaultData>
-<IdLocation>^Demo.OperationalAnal43E6.TableD</IdLocation>
-<IndexLocation>^Demo.OperationalAnal43E6.TableI</IndexLocation>
-<StreamLocation>^Demo.OperationalAnal43E6.TableS</StreamLocation>
+<DataLocation>^Demo.Operatio43E6.MetricsTableD</DataLocation>
+<DefaultData>MetricsTableDefaultData</DefaultData>
+<IdLocation>^Demo.Operatio43E6.MetricsTableD</IdLocation>
+<IndexLocation>^Demo.Operatio43E6.MetricsTableI</IndexLocation>
+<StreamLocation>^Demo.Operatio43E6.MetricsTableS</StreamLocation>
 <Type>%Storage.Persistent</Type>
 }
 

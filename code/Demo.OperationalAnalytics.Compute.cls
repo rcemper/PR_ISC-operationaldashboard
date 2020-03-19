@@ -18,9 +18,13 @@ Method OnTask() As %Status
 	// Makes a call to helper function PrevHour, defined below
 	set tToday = $zdate($horolog,3) // store today's date in tToday
 	set tPrevHour = ..PrevHour($zdatetime($h,3))
+
+    set tPrevHour = 11
 	
 	set tBeginTime = tToday_" "_tPrevHour_":00:00.000"
 	set tEndTime = tToday_" "_tPrevHour_":59:59.999"
+
+    write "tBeginTime: "_tBeginTime
 
 	// Specify all the namespaces to loop through in the ^ReportNamespaces index global
 	set key = $Order(^ReportNamespaces(""))
@@ -66,7 +70,6 @@ Method OnTask() As %Status
 							"(select count(*) from ens.messageheader where targetbusinesstype=3 and not(targetconfigname='Ens.Alert') and (messagebodyid is not null) and (description is null) and TimeCreated > '"_tBeginTime_"' AND TimeCreated < '"_tEndTime_"') as NumOutbound "_
 							"from ens.messageheader"
 
-		
 		set tStatement = ##class(%SQL.Statement).%New()
 		set tStatement.%SelectMode = 1  // set the mode to ODBC
    		set qStatus = tStatement.%Prepare(myquery)
@@ -115,8 +118,8 @@ Method OnTask() As %Status
 		set tMaxAvgTime = tMaxAvgTime / 1000
 		
 		// Insert the information from the current namespace into AvgProcTimeTable
-		&SQL(INSERT INTO Demo_OperationalAnalytics.Table(RunTime,Namespace,AvgTime,AvgAckTime,NumInbound,MinTime,MaxTime,NumOutbound)
-				VALUES (:tTime,:tNamespace,:tAvgTime,:tAvgAckTime,:tNumInbound,:tMinAvgTime,:tMaxAvgTime,:tNumOutbound))
+		&SQL(INSERT INTO Demo_OperationalAnalytics.MetricsTable(RunTime,Namespace,AvgTime,AvgAckTime,NumInbound,NumOutbound,MinTime,MaxTime)
+				VALUES (:tTime,:tNamespace,:tAvgTime,:tAvgAckTime,:tNumInbound,:tNumOutbound,:tMinAvgTime,:tMaxAvgTime))
 		
 		// iterate onto the next namespace listed in ^ReportNamespaces global, if exists
 		zn "REPORTS" 
@@ -124,8 +127,8 @@ Method OnTask() As %Status
 	}
 	
 	// Replace the cube name
-	do ##class(Demo.OperationalAnalaytics.Table).%BuildIndices()
-	set tCubeRebuild = ##class(%DeepSee.Utils).%BuildCube("Operational Analytics Table")
+	do ##class(Demo.OperationalAnalytics.MetricsTable).%BuildIndices()
+	set tCubeRebuild = ##class(%DeepSee.Utils).%BuildCube("Operational Analytics")
 	quit tCubeRebuild   // quit with a status of the cube build
 }
 
@@ -156,6 +159,7 @@ ClassMethod PrevHour(pDateTime As %String) As %String
 	
 	set tPrevHour = $piece(tOneHourBefore," ",2) // gets the time component of zDateTime
 	set tPrevHour = $piece(tPrevHour,":",1) // gets the hour component from time
+
 	return tPrevHour
 }
 
