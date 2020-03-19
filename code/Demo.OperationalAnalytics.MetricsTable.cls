@@ -1,6 +1,21 @@
 Class Demo.OperationalAnalytics.MetricsTable Extends %Persistent
 {
 
+/*
+*****************************************************
+*                 ** N O T I C E **                 *
+*               - TEST/DEMO SOFTWARE -              *
+* This and related items are not supported by       *
+* InterSystems as part of any released product.     *
+* It is supplied by InterSystems as a demo/test     *
+* tool for a specific product and version.          *
+* The user or customer is fully responsible for     *
+* the maintenance of this software after delivery,  *
+* and InterSystems shall bear no responsibility nor *
+* liabilities for errors or misuse of this item.    *
+*                                                   *
+*****************************************************
+*/
 Property RunTime As %TimeStamp;
 
 Property Namespace As %String;

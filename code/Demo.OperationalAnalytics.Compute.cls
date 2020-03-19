@@ -2,6 +2,21 @@ Class Demo.OperationalAnalytics.Compute Extends %SYS.Task.Definition
 {
 
 /*
+*****************************************************
+*                 ** N O T I C E **                 *
+*               - TEST/DEMO SOFTWARE -              *
+* This and related items are not supported by       *
+* InterSystems as part of any released product.     *
+* It is supplied by InterSystems as a demo/test     *
+* tool for a specific product and version.          *
+* The user or customer is fully responsible for     *
+* the maintenance of this software after delivery,  *
+* and InterSystems shall bear no responsibility nor *
+* liabilities for errors or misuse of this item.    *
+*                                                   *
+*****************************************************
+*
+*
 Code Description:
 We will create an operational dashboard to illustrate key metrics for processing messages (i.e. average processing times, number of inbound/outbound messages) across all specified namespaces.
 By extending %SYS.Task.Definition, we will be able to use the Task Manager to refresh the dashboard every hour with the latest messages from the preceding hour. 
