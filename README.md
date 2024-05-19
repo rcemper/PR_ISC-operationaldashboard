@@ -3,7 +3,7 @@ This Github contains sample code for InterSystems Operational Analytics Dashboar
 Detailed description can be found on InterSystems Developer Community ([click here](https://community.intersystems.com/post/developing-operational-analytics-dashboards)).
 ## Docker   
 The container has namespace REPORTS + its DB's as suggested     
-Analyitics and Interoperability are enabled    
+Analytics and Interoperability are enabled    
 ### Prerequisites
 Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Docker desktop](https://www.docker.com/products/docker-desktop) installed.
 ### Installation
