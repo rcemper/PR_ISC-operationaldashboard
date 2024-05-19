@@ -13,9 +13,6 @@ $ git clone https://github.com/rcemper/PR_ISC-operationaldashboard.git
 ```
 $ docker compose up -d && docker compose logs -f
 ```
-The container has a demo production that you need to start        
-http://localhost:42773/csp/user/EnsPortal.ProductionConfig.zen?PRODUCTION=JK.MONMGR.Production
-
 
 To open IRIS Terminal do:
 ```
