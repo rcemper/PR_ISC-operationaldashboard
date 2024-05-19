@@ -1,0 +1,21 @@
+// create namespace REPORTS
+set sc=$SYSTEM.OBJ.Load("/home/irisowner/dev/Installer.cls", "ck") zw sc
+set sc = ##class(App.Installer).setup() zw sc
+do EnableDeepSee^%SYS.cspServer("/csp/reports/")
+
+zn "%SYS"
+  
+// Unexpire passwords and set up passwordless mode to simplify dev use.
+do ##class(Security.Users).UnExpireUserPasswords("*")
+zpm "install passwordless"
+	
+zn "REPORTS"
+// Create /_vscode web app to support intersystems-community.testingmanager VS Code extension
+zpm "install vscode-per-namespace-settings"
+zpm "install webterminal"
+	
+zpm "load /home/irisowner/dev/ -v":1
+zpm "list"
+!	
+halt
+

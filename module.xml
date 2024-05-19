@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25">
+  <Document name="operationaldashboard.ZPM">
+    <Module>
+      <Name>operationaldashboard</Name>
+      <Version>1.0.1</Version>
+      <Description>Operational Analytics Dashboards</Description>
+      <Packaging>module</Packaging>
+      <SourcesRoot>code</SourcesRoot>
+      <Resource Name="Demo.PKG"/>
+    </Module>
+  </Document>
+</Export>
